@@ -166,6 +166,31 @@ return {
 					},
 				})
 			end,
+			["gopls"] = function()
+				-- config for golang server
+				lspconfig["gopls"].setup({
+					capabilities = capabilities,
+					cmd = { "gopls" },
+					filetypes = {
+						"go",
+						"gomod",
+						"gowork",
+						"gotmpl",
+					},
+					single_file_support = true,
+				})
+			end,
+			["golangci_lint_ls"] = function()
+				-- golangci-lint config
+				lspconfig["golangci_lint_ls"].setup({
+					capabilities = capabilities,
+					cmd = { "golangci-lint-langserver" },
+					filetypes = { "go", "gomod" },
+					init_options = {
+						command = { "golangci-lint", "run", "--out-format", "json" },
+					},
+				})
+			end,
 			["lua_ls"] = function()
 				-- configure lua server (with special settings)
 				lspconfig["lua_ls"].setup({
