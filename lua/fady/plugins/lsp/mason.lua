@@ -54,7 +54,6 @@ return {
 				"goimports",
 				"pylint",
 				"eslint_d",
-				"golangci-lint",
 				"jsonlint",
 				"debugpy",
 			},
